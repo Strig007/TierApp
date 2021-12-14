@@ -7,13 +7,13 @@ using System.Web.Mvc;
 
 namespace MVCApp.Controllers
 {
-    public class HomeController : Controller
+    public class CustomerController : Controller
     {
+        // GET: Customer
         public ActionResult Index()
         {
-            var data = ProductService.GetAll();
+            var data = CustomerService.GetAll();
             return View(data);
         }
-
     }
 }

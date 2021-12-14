@@ -51,6 +51,9 @@
     <Compile Include="Customer.cs">
       <DependentUpon>PMS.tt</DependentUpon>
     </Compile>
+    <Compile Include="CustomerRepo.cs" />
+    <Compile Include="DataAccessFactory.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>PMS.tt</DependentUpon>
     </Compile>

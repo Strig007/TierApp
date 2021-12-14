@@ -6,47 +6,45 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class ProductRepo : IRepository<Product, int>
+    public class CustomerRepo : IRepository<Customer, int>
     {
         EcommerceEntities db;
-        public ProductRepo(EcommerceEntities db)
+        public CustomerRepo(EcommerceEntities db)
         {
             this.db = db;
         }
-
-        public void Add(Product e)
+        public void Add(Customer e)
         {
-            db.Products.Add(e);
+            db.Customers.Add(e);
             db.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var data = (from e in db.Products
+            var data = (from e in db.Customers
                         where e.Id == id
                         select e).FirstOrDefault();
-            db.Products.Remove(data);
+            db.Customers.Remove(data);
             db.SaveChanges();
         }
 
-        public void Edit(Product e)
+        public void Edit(Customer e)
         {
-            var data = (from k in db.Products
+            var data = (from k in db.Customers
                         where k.Id == e.Id
                         select k).FirstOrDefault();
-            data.Name = e.Name.Trim();
-            data.Price = e.Price;
+            data.Password = e.Password.Trim();
             db.SaveChanges();
         }
 
-        public List<Product> Get()
+        public List<Customer> Get()
         {
-            return db.Products.ToList();
+            return db.Customers.ToList();
         }
 
-        public Product Get(int id)
+        public Customer Get(int id)
         {
-            var data = (from e in db.Products
+            var data = (from e in db.Customers
                         where e.Id == id
                         select e).FirstOrDefault();
             return data;
